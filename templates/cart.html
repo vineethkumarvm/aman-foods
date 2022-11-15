@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+    	
+	<!-- Content -->
+    <div class="container content-space-1 content-space-lg-2">
+      <div class="row">
+        <div class="col-lg-12 mb-7 mb-lg-0">
+          <!-- Heading -->
+          <div class="d-flex justify-content-between align-items-end border-bottom pb-3 mb-7">
+            <h1 class="h3 mb-0">Shopping cart</h1>
+            			<span>3 items</span>
+          </div>
+          <!-- End Heading -->
+		  
+		  
+		  <div class="card card-sm shadow-sm mb-4 p-5-lg">
+			<div class="card-header">
+			  <!-- Form -->
+			  <form action="{% url 'checkout' %}" method="post" enctype="multipart/form-data">
+				<!-- List Group -->{%csrf_token%}
+				<ul class="list-group list-group-flush list-group-no-gutters mb-5">
+									  
+					{% for car in cart %} 
+				  <!-- Item -->
+				  <li class="list-group-item">
+					<div class="d-flex align-items-center">
+					  <div class="flex-shrink-0">
+						<img class="avatar avatar-xl avatar-4x3" src="{{car.product.product_image.url}}" alt="Image Description">
+					  </div>
+
+					  <div class="flex-grow-1 ms-3 ">
+						<div class="row">
+						  <div class="col-sm-7 mb-3 mb-sm-0">
+							<h5><a class="text-dark" href="https://amansfood.com/product-overview.php?product=202">{{ car.product.product_name }}</a></h5>
+							<p>{{car.product.quantity }}</p>
+
+						   </div>
+						  <!-- End Col -->
+
+						  <div class="col-sm-3">
+							<div class="row">
+							  <div class="col-auto">
+								<!-- Select -->
+								<select class="form-select form-select-sm mb-3" id="qty88" name="qty88" required="">
+									<option>1</option>
+									<option value="88|1">1</option>
+									<option value="88|2">2</option>
+									<option value="88|3">3</option>
+									<option value="88|4">4</option>
+									<option value="88|5">5</option>
+									<option value="88|6">6</option>
+									<option value="88|7">7</option>
+									<option value="88|8">8</option>
+									<option value="88|9">9</option>
+									<option value="88|10">10</option>
+								</select>
+								<!-- End Select -->
+							  </div>
+							  <!-- End Col -->
+							</div>
+							<!-- End Row -->
+							<script>
+							$(document).ready(function(){
+							$("#qty88").change(function(){
+							var newqty = this.value;
+							console.log(newqty)
+							$.ajax({
+							url: 'cart-updateqty-api.php',
+							method: 'post',
+							data: {newqty:newqty},
+							success:function(response){
+							location.reload(true);
+							}
+							});
+							});
+							});
+						  </script>
+						  </div>
+						  <!-- End Col -->
+						   
+
+						  <div class="col-sm-2 d-sm-inline-block text-right">
+							<div class="col-auto">
+								<div class="d-grid gap-2">
+									<a href="{% url 'cartremove' car.product.pk %}">
+										<i class="bi-trash me-1"></i> Remove
+									</a>
+								</div>
+							</div>		
+						  </div>
+						  <!-- End Col -->
+						</div>
+
+						
+						<!-- End Row -->
+					  </div>
+					</div>
+				  </li>
+				  <!-- End Item -->
+
+				  {% endfor %}
+									  
+									  
+				</ul>
+				<!-- End List Group -->
+
+				<div class="d-flex justify-content-between justify-content-sm-between">
+				  <div class="col m-1">
+					<a class="btn btn-sm btn-primary float-lg-start float-sm-start" href="https://amansfood.com/product.php">
+						<i class="bi-chevron-left small ms-1"></i> Continue shopping
+					</a>
+				  </div>
+				  <div class="col m-1">
+					<input type="hidden" name="cart_id[]" value="86">
+					<button class="btn btn-sm btn-primary float-lg-end float-sm-end" type="submit" name="login_user_with_product">Proceed to Checkout <i class="bi bi-chevron-compact-right"></i></button>
+				  </div>
+				  
+				</div></form>
+			  
+			  <!-- End Form -->
+			</div> 
+		  </div>
+        </div>
+        <!-- End Col -->
+	  </div>
+	</div> 
+		
+    
+
+    
+
+    
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  {% endblock content %}

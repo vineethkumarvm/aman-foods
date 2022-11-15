@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="content" role="main">
+	    <!-- Hero -->
+    <div class="container content-space-t-1 content-space-t-sm-2">
+      <div class="row">
+        <div class="col-md-7 mb-7 mb-md-0">
+          <div class="pe-md-4">
+            <div class="card-pinned">
+              <!-- Swiper Main Slider -->
+              <div class="js-swiper-shop-product swiper swiper-fade swiper-initialized swiper-horizontal swiper-pointer-events">
+                <div class="swiper-wrapper" id="swiper-wrapper-599b9f6b9d908b9b" aria-live="off" style="transition-duration: 0ms;"><div class="swiper-slide p-1 swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 1" style="width: 617px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="card card-bordered shadow-none p-5">
+                      <img class="card-img p-5 " src="{{prosin.product_image.url}}" alt="Image Description">
+                    </div>
+                  </div>
+									  <!-- Slide -->
+                  <div class="swiper-slide p-1 swiper-slide-duplicate-active swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" role="group" aria-label="1 / 1" style="width: 617px; opacity: 1; transform: translate3d(-617px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="card card-bordered shadow-none p-5">
+                      <img class="card-img p-5 " src="{{prosin.product_image.url}}" alt="Image Description">
+                    </div>
+                  </div>
+                  <!-- End Slide -->
+					                <div class="swiper-slide p-1 swiper-slide-duplicate swiper-slide-visible swiper-slide-active swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 1" style="width: 617px; opacity: 1; transform: translate3d(-1234px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="card card-bordered shadow-none p-5">
+                      <img class="card-img p-5 " src="{{prosin.product_image.url}}" alt="Image Description">
+                    </div>
+                  </div></div>
+
+                <!-- Arrows -->
+                <div class="js-swiper-shop-product-button-next swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-599b9f6b9d908b9b"></div>
+                <div class="js-swiper-shop-product-button-prev swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-599b9f6b9d908b9b"></div>
+              <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+              <!-- End Swiper Main Slider -->
+
+              <!-- Swiper Thumb Slider -->
+              <div class="position-absolute bottom-0 end-0 start-0 zi-1 p-4">
+                <div class="js-swiper-shop-product-thumb swiper swiper-initialized swiper-horizontal swiper-pointer-events" style="max-width: 15rem;">
+                  <div class="swiper-wrapper" id="swiper-wrapper-47e7c398fcb2257e" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
+                    					<!-- Slide -->
+                    <div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="1 / 1" style="width: 80px;">
+                      <a class="avatar avatar-circle " href="javascript:;">
+                        <img class="avatar-img img-fluid border border-primary" src="{{prosin.product_image.url}}" alt="Image Description">
+                      </a>
+                    </div>
+                    <!-- End Slide -->
+					                  </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+              </div>
+              <!-- End Swiper Thumb Slider -->
+            </div>
+          </div>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-md-5">
+          
+
+          <!-- Heading -->
+          <div class="mb-5">
+            <h1 class="h2">{{ prosin.product_name }}</h1>
+            <p>{{ prosin.quantity }}</p>
+          </div>
+          <!-- End Heading -->
+
+          {% for cat in pro %} 	
+
+          <!-- Quantity -->
+          <form action="{% url 'cartadd' cat.pk %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+		  <div class="quantity-counter mb-3">
+            <div class="js-quantity-counter row align-items-center">
+              <div class="col">
+                <span class="d-block small">Select quantity</span>
+                <input name="qty" id="qty" class="js-result form-control form-control-quantity-counter" type="text" value="1">
+              </div>
+              <!-- End Col -->
+
+              <div class="col-auto">
+                <a class="js-minus btn btn-outline-secondary btn-xs btn-icon rounded-circle" href="javascript:;">
+                  <svg width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 1C0 0.723858 0.223858 0.5 0.5 0.5H7.5C7.77614 0.5 8 0.723858 8 1C8 1.27614 7.77614 1.5 7.5 1.5H0.5C0.223858 1.5 0 1.27614 0 1Z" fill="currentColor"></path>
+                  </svg>
+                </a>
+                <a class="js-plus btn btn-outline-secondary btn-xs btn-icon rounded-circle" href="javascript:;">
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 0C4.27614 0 4.5 0.223858 4.5 0.5V3.5H7.5C7.77614 3.5 8 3.72386 8 4C8 4.27614 7.77614 4.5 7.5 4.5H4.5V7.5C4.5 7.77614 4.27614 8 4 8C3.72386 8 3.5 7.77614 3.5 7.5V4.5H0.5C0.223858 4.5 0 4.27614 0 4C0 3.72386 0.223858 3.5 0.5 3.5H3.5V0.5C3.5 0.223858 3.72386 0 4 0Z" fill="currentColor"></path>
+                  </svg>
+                </a>
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
+          <!-- End Quantity -->
+          {% endfor %}
+          
+			<input type="hidden" id="productid" name="productid" value="202">
+          <div class="d-grid mb-4">
+            <button type="submit" name="AddToCart" class="btn btn-primary btntransition">Add to cart</button>
+          </div>
+		</form>
+          
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Hero -->
+	
+    <!-- Content -->
+    <div class="container content-space-t-2 content-space-md-3">
+      <div class="row">
+        
+
+        <div class="col-md-6 mb-5 mb-md-0">
+          <div class="row">
+            NFGB10
+            
+          </div>
+          <!-- End Row -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content -->
+
+        
+
+    
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  {% endblock content %}

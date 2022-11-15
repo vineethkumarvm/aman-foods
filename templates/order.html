@@ -1,0 +1,461 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://amansfood.com/users/order.php -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required Meta Tags Always Come First -->
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Amman Foods User</title>
+    <!-- Favicon -->
+  <link rel="shortcut icon" href="https://amansfood.com/users/favicon.ico">
+
+  <!-- Font -->
+  <link href=" {% static 'order_files/css2' %}" rel="stylesheet">
+
+  <!-- CSS Implementing Plugins -->
+  <link rel="stylesheet" href="{% static 'order_files/vendor.min.css' %}">
+
+  <!-- CSS Front Template -->
+  <link rel="stylesheet" href="{% static 'order_files/theme.minc619.css' %}">
+
+  <link rel="preload" href="{% static 'order_files/theme.min.css' %}" data-hs-appearance="default" as="style">
+  <link rel="preload" href="https://amansfood.com/users/assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+  
+  
+
+  
+
+  <script>
+  window.hs_config = {"autopath":"@@autopath","deleteLine":"hs-builder:delete","deleteLine:build":"hs-builder:build-delete","deleteLine:dist":"hs-builder:dist-delete","previewMode":false,"startPath":"/index.html","vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},"layoutBuilder":{"extend":{"switcherSupport":true},"header":{"layoutMode":"default","containerMode":"container-fluid"},"sidebarLayout":"default"},"themeAppearance":{"layoutSkin":"default","sidebarSkin":"default","styles":{"colors":{"primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144","gray":{"100":"#f9fafc","900":"#1e2022"}},"font":"Inter"}},"languageDirection":{"lang":"en"},"skipFilesFromBundle":{"dist":["assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","assets/js/demo.js"],"build":["assets/css/theme.css","assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js","assets/js/demo.js","assets/css/theme-dark.html","assets/css/docs.css","assets/vendor/icon-set/style.html","assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.html","assets/js/demo.js"]},"minifyCSSFiles":["assets/css/theme.css","assets/css/theme-dark.css"],"copyDependencies":{"dist":{"*assets/js/theme-custom.js":""},"build":{"*assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"assets/css"}},"buildFolder":"","replacePathsToCDN":{},"directoryNames":{"src":"./src","dist":"./dist","build":"./build"},"fileNames":{"dist":{"js":"theme.min.js","css":"theme.min.css"},"build":{"css":"theme.min.css","js":"theme.min.js","vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}},"fileTypes":"jpg|png|svg|mp4|webm|ogv|json"}
+  window.hs_config.gulpRGBA = (p1) => {
+  const options = p1.split(',')
+  const hex = options[0].toString()
+  const transparent = options[1].toString()
+
+  var c;
+  if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+    c= hex.substring(1).split('');
+    if(c.length== 3){
+      c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+    }
+    c= '0x'+c.join('');
+    return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + transparent + ')';
+  }
+  throw new Error('Bad Hex');
+}
+            window.hs_config.gulpDarken = (p1) => {
+  const options = p1.split(',')
+
+  let col = options[0].toString()
+  let amt = -parseInt(options[1])
+  var usePound = false
+
+  if (col[0] == "#") {
+    col = col.slice(1)
+    usePound = true
+  }
+  var num = parseInt(col, 16)
+  var r = (num >> 16) + amt
+  if (r > 255) {
+    r = 255
+  } else if (r < 0) {
+    r = 0
+  }
+  var b = ((num >> 8) & 0x00FF) + amt
+  if (b > 255) {
+    b = 255
+  } else if (b < 0) {
+    b = 0
+  }
+  var g = (num & 0x0000FF) + amt
+  if (g > 255) {
+    g = 255
+  } else if (g < 0) {
+    g = 0
+  }
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+}
+            window.hs_config.gulpLighten = (p1) => {
+  const options = p1.split(',')
+
+  let col = options[0].toString()
+  let amt = parseInt(options[1])
+  var usePound = false
+
+  if (col[0] == "#") {
+    col = col.slice(1)
+    usePound = true
+  }
+  var num = parseInt(col, 16)
+  var r = (num >> 16) + amt
+  if (r > 255) {
+    r = 255
+  } else if (r < 0) {
+    r = 0
+  }
+  var b = ((num >> 8) & 0x00FF) + amt
+  if (b > 255) {
+    b = 255
+  } else if (b < 0) {
+    b = 0
+  }
+  var g = (num & 0x0000FF) + amt
+  if (g > 255) {
+    g = 255
+  } else if (g < 0) {
+    g = 0
+  }
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
+}
+</script>
+  
+<style class="fslightbox-styles">.fslightbox-absoluted{position:absolute;top:0;left:0}.fslightbox-fade-in{animation:fslightbox-fade-in .3s cubic-bezier(0,0,.7,1)}.fslightbox-fade-out{animation:fslightbox-fade-out .3s ease}.fslightbox-fade-in-strong{animation:fslightbox-fade-in-strong .3s cubic-bezier(0,0,.7,1)}.fslightbox-fade-out-strong{animation:fslightbox-fade-out-strong .3s ease}@keyframes fslightbox-fade-in{from{opacity:.65}to{opacity:1}}@keyframes fslightbox-fade-out{from{opacity:.35}to{opacity:0}}@keyframes fslightbox-fade-in-strong{from{opacity:.3}to{opacity:1}}@keyframes fslightbox-fade-out-strong{from{opacity:1}to{opacity:0}}.fslightbox-cursor-grabbing{cursor:grabbing}.fslightbox-full-dimension{width:100%;height:100%}.fslightbox-open{overflow:hidden;height:100%}.fslightbox-flex-centered{display:flex;justify-content:center;align-items:center}.fslightbox-opacity-0{opacity:0!important}.fslightbox-opacity-1{opacity:1!important}.fslightbox-scrollbarfix{padding-right:17px}.fslightbox-transform-transition{transition:transform .3s}.fslightbox-container{font-family:Arial,sans-serif;position:fixed;top:0;left:0;background:linear-gradient(rgba(30,30,30,.9),#000 1810%);touch-action:pinch-zoom;z-index:1000000000;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.fslightbox-container *{box-sizing:border-box}.fslightbox-svg-path{transition:fill .15s ease;fill:#ddd}.fslightbox-nav{height:45px;width:100%;position:absolute;top:0;left:0}.fslightbox-slide-number-container{display:flex;justify-content:center;align-items:center;position:relative;height:100%;font-size:15px;color:#d7d7d7;z-index:0;max-width:55px;text-align:left}.fslightbox-slide-number-container .fslightbox-flex-centered{height:100%}.fslightbox-slash{display:block;margin:0 5px;width:1px;height:12px;transform:rotate(15deg);background:#fff}.fslightbox-toolbar{position:absolute;z-index:3;right:0;top:0;height:100%;display:flex;background:rgba(35,35,35,.65)}.fslightbox-toolbar-button{height:100%;width:45px;cursor:pointer}.fslightbox-toolbar-button:hover .fslightbox-svg-path{fill:#fff}.fslightbox-slide-btn-container{display:flex;align-items:center;padding:12px 12px 12px 6px;position:absolute;top:50%;cursor:pointer;z-index:3;transform:translateY(-50%)}@media (min-width:476px){.fslightbox-slide-btn-container{padding:22px 22px 22px 6px}}@media (min-width:768px){.fslightbox-slide-btn-container{padding:30px 30px 30px 6px}}.fslightbox-slide-btn-container:hover .fslightbox-svg-path{fill:#f1f1f1}.fslightbox-slide-btn{padding:9px;font-size:26px;background:rgba(35,35,35,.65)}@media (min-width:768px){.fslightbox-slide-btn{padding:10px}}@media (min-width:1600px){.fslightbox-slide-btn{padding:11px}}.fslightbox-slide-btn-container-previous{left:0}@media (max-width:475.99px){.fslightbox-slide-btn-container-previous{padding-left:3px}}.fslightbox-slide-btn-container-next{right:0;padding-left:12px;padding-right:3px}@media (min-width:476px){.fslightbox-slide-btn-container-next{padding-left:22px}}@media (min-width:768px){.fslightbox-slide-btn-container-next{padding-left:30px}}@media (min-width:476px){.fslightbox-slide-btn-container-next{padding-right:6px}}.fslightbox-down-event-detector{position:absolute;z-index:1}.fslightbox-slide-swiping-hoverer{z-index:4}.fslightbox-invalid-file-wrapper{font-size:22px;color:#eaebeb;margin:auto}.fslightbox-video{object-fit:cover}.fslightbox-youtube-iframe{border:0}.fslightbox-loader{display:block;margin:auto;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:67px;height:67px}.fslightbox-loader div{box-sizing:border-box;display:block;position:absolute;width:54px;height:54px;margin:6px;border:5px solid;border-color:#999 transparent transparent transparent;border-radius:50%;animation:fslightbox-loader 1.2s cubic-bezier(.5,0,.5,1) infinite}.fslightbox-loader div:nth-child(1){animation-delay:-.45s}.fslightbox-loader div:nth-child(2){animation-delay:-.3s}.fslightbox-loader div:nth-child(3){animation-delay:-.15s}@keyframes fslightbox-loader{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}.fslightbox-source{position:relative;z-index:2;opacity:0}</style><style data-hs-appearance-visability-styles="">[data-hs-theme-appearance]:not([data-hs-theme-appearance='default']){display:none!important;}</style></head><link rel="stylesheet" href="./order_files/theme.min.css" data-hs-current-theme="stylesheet">
+
+<body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl footer-offset">
+
+  <!-- ========== HEADER ========== -->
+
+  <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
+    <div class="navbar-nav-wrap">
+      <!-- Logo -->
+      <a class="navbar-brand" href="https://amansfood.com/index.php" aria-label="Front">
+        <img class="navbar-brand-logo" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:50px;" data-hs-theme-appearance="default">
+        <img class="navbar-brand-logo" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:50px;" data-hs-theme-appearance="dark">
+        <img class="navbar-brand-logo-mini" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:50px;" data-hs-theme-appearance="default">
+        <img class="navbar-brand-logo-mini" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:50px;" data-hs-theme-appearance="dark">
+      </a>
+      <!-- End Logo -->
+
+      <div class="navbar-nav-wrap-content-start">
+        <!-- Navbar Vertical Toggle -->
+        <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler" style="opacity: 1;">
+          <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template="&lt;div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tooltip-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Collapse" aria-label="Collapse"></i>
+          <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template="&lt;div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tooltip-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Expand" aria-label="Expand"></i>
+        </button>
+
+        <!-- End Navbar Vertical Toggle -->
+
+        
+      </div>
+
+      <div class="navbar-nav-wrap-content-end">
+        <!-- Navbar -->
+        <ul class="navbar-nav">
+          
+            
+          
+
+          <li class="nav-item d-none d-sm-inline-block">
+            
+          </li>
+
+          <li class="nav-item d-none d-sm-inline-block">
+            
+          </li>
+
+          <li class="nav-item">
+            <!-- Account -->
+            <div class="dropdown">
+              <a class="navbar-dropdown-account-wrapper" href="javascript:;" id="accountNavbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation="">
+                <div class="avatar avatar-sm avatar-circle">
+                  <img class="avatar-img" src="./order_files/user.webp" alt="Image Description">
+                  <span class="avatar-status avatar-sm-status avatar-status-success"></span>
+                </div>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end navbar-dropdown-menu navbar-dropdown-menu-borderless navbar-dropdown-account" aria-labelledby="accountNavbarDropdown" style="width: 16rem;">
+                <div class="dropdown-item-text">
+                  <div class="d-flex align-items-center">
+                    <div class="avatar avatar-sm avatar-circle">
+                      <img class="avatar-img" src="./order_files/user.webp" alt="Image Description">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <h5 class="mb-0">Offerpedia Techsolutions </h5>
+                      <p class="card-text text-body">sarath@gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="https://amansfood.com/users/order.php#">Profile &amp; account</a>
+                <div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="https://amansfood.com/users/logout.php">Sign out</a>
+              </div>
+            </div>
+            <!-- End Account -->
+          </li>
+        </ul>
+        <!-- End Navbar -->
+      </div>
+    </div>
+  </header>
+  <!-- ========== END HEADER ========== -->
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <!-- Navbar Vertical -->
+  
+  <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white navbar-vertical-aside-initialized">
+    <div class="navbar-vertical-container">
+      <div class="navbar-vertical-footer-offset">
+        <!-- Logo -->
+
+        <a class="navbar-brand" href="https://amansfood.com/index.php" aria-label="Amman Foods">
+          <img class="navbar-brand-logo" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="default">
+          <img class="navbar-brand-logo" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="dark">
+          <img class="navbar-brand-logo-mini" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="default">
+          <img class="navbar-brand-logo-mini" src="./order_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="dark">
+        </a>
+
+        <!-- End Logo -->
+
+        <!-- Navbar Vertical Toggle -->
+        <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler" style="opacity: 1;">
+          <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template="&lt;div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tooltip-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Collapse" aria-label="Collapse"></i>
+          <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template="&lt;div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tooltip-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Expand" aria-label="Expand"></i>
+        </button>
+
+        <!-- End Navbar Vertical Toggle -->
+
+        <!-- Content -->
+        <div class="navbar-vertical-content">
+          <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+            <div class="nav-item">
+                <a class="nav-link " href="https://amansfood.com/users/index.php" data-placement="left">
+                  <i class="bi-house nav-icon"></i>
+                  <span class="nav-link-title">Dashboard</span>
+                </a>
+            </div>
+			  
+			  
+			<div class="nav-item">
+                <a class="nav-link " href="https://amansfood.com/users/order.php" data-placement="left">
+                  <i class="bi-basket nav-icon"></i>
+                  <span class="nav-link-title">Orders</span>
+                </a>
+            </div>
+		  </div>
+		</div>
+        <!-- End Content -->
+	  </div>
+    </div>
+  </aside>  
+
+  <main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+	  <div class="row justify-content-sm-center text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+			<div class="card">
+			  <!-- Header -->
+			  <div class="card-header">
+				<div class="row justify-content-between align-items-center flex-grow-1">
+				  <div class="col-12 col-md">
+					<div class="d-flex justify-content-between align-items-center">
+					  <h5 class="card-header-title">Orders</h5>
+					</div>
+				  </div>
+
+				  <div class="col-auto">
+					<!-- Filter -->
+					<form>
+					  <!-- Search -->
+					  <div class="input-group input-group-merge input-group-flush">
+						<div class="input-group-prepend input-group-text">
+						  <i class="bi-search"></i>
+						</div>
+						<input id="datatableWithSearchInput" type="search" class="form-control" placeholder="Search Orders" aria-label="Search Orders">
+					  </div>
+					  <!-- End Search -->
+					</form>
+					<!-- End Filter -->
+				  </div>
+				</div>
+			  </div>
+			  <!-- End Header -->
+
+			  <!-- Table -->
+			  <div class="table-responsive datatable-custom" style="min-height:500px">
+				<table class="js-datatable table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options="{
+							   &quot;order&quot;: [],
+							   &quot;search&quot;: &quot;#datatableWithSearchInput&quot;,
+							   &quot;isResponsive&quot;: false,
+							   &quot;isShowPaging&quot;: false,
+							   &quot;pagination&quot;: &quot;datatableWithSearchPagination&quot;
+							 }">
+				  <thead class="thead-light">
+				  <tr>
+					<th>Order Id</th>
+					<th>Order Placed</th>
+					<th>Order Status</th>
+					<th>Action</th>
+					
+				  </tr></thead>
+
+				  <tbody>
+            {% for car in order %} 				  
+				  <tr class="text-center">
+					<td>
+					  <a class="d-flex justify-content-center" href="https://amansfood.com/users/order-view.php?order=48871910904354172">
+						<span class="d-block h5 mb-0">{{car.id}}</span>
+					  </a>	
+					</td>
+					<td>2022-11-07 11:23:21 AM</td>
+					<td>
+					  <span class="legend-indicator bg-success"></span>Active
+					</td>
+					<!-- <td class="text-center">
+						<a class="btn btn-soft-info" href="order-view?user=13">
+							<i class="bi bi-cloud-download"></i>
+						</a>	
+					</td> --> 
+					<td>
+							  <div class="btn-group" role="group">
+								<a class="btn btn-white btn-sm" href="{% url 'ordersingle' car.pk %}">
+								  <i class="bi bi-eye me-1"></i> View
+								</a>
+
+								<!-- Button Group -->
+								<div class="btn-group">
+								  <button type="button" class="btn btn-white btn-icon btn-sm dropdown-toggle dropdown-toggle-empty" id="productsEditDropdown18" data-bs-toggle="dropdown" aria-expanded="false"></button>
+
+								  <div class="dropdown-menu dropdown-end-end mt-1" aria-labelledby="productsEditDropdown18">
+									<a class="dropdown-item" href="https://amansfood.com/users/order.php#">
+									  <i class="bi-trash dropdown-item-icon"></i> Cancel Order
+									</a>
+									<a class="dropdown-item" href="https://amansfood.com/users/order-view.php?order=48871910904354172">
+									  <i class="bi bi-eye dropdown-item-icon"></i> View order details 
+									</a>
+									<a class="dropdown-item" href="https://amansfood.com/users/order.php#">
+									  <i class="bi bi-receipt dropdown-item-icon"></i> Request invoice
+									</a>
+									<a class="dropdown-item" href="https://amansfood.com/users/order.php#">
+									  <i class="bi-person-workspace dropdown-item-icon"></i> Support
+									</a>
+								  </div>
+								</div>
+								<!-- End Button Group -->
+							  </div>
+							</td>
+				  </tr>
+          {% endfor %}
+									  </tbody>
+				</table>
+			  </div>
+			  <!-- End Table -->
+
+			  <!-- Footer -->
+        <div class="card-footer">
+          <!-- Pagination -->
+          <div class="row justify-content-center justify-content-sm-between align-items-sm-center">
+            <div class="col-sm mb-2 mb-sm-0">
+              <div class="d-flex justify-content-center justify-content-sm-start align-items-center">
+                <span class="me-2">Showing:</span>
+
+                <!-- Select -->
+                <div class="tom-select-custom">
+                  <select id="datatableEntries" class="js-select form-select form-select-borderless w-auto tomselected" autocomplete="off" data-hs-tom-select-options="{
+                            &quot;searchInDropdown&quot;: false,
+                            &quot;hideSearch&quot;: true
+                          }" tabindex="-1" hidden="hidden"><option value="8" selected="true">8</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    
+                    <option value="12">12</option>
+                  </select><div class="ts-control js-select form-select form-select-borderless w-auto single plugin-change_listener plugin-hs_smart_position input-hidden"><div class="items ts-input full has-items"><div data-value="8" class="item">8</div></div><div class="tom-select-custom"><div class="ts-dropdown single js-select form-select form-select-borderless w-auto plugin-change_listener plugin-hs_smart_position" style="display: none;"><div role="listbox" id="datatableEntries-ts-dropdown" tabindex="-1" class="ts-dropdown-content"></div></div></div></div>
+                </div>
+                <!-- End Select -->
+
+                <span class="text-secondary me-2">of</span>
+
+                <!-- Pagination Quantity -->
+                <span id="datatableWithPaginationInfoTotalQty"></span>
+              </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="col-sm-auto">
+              <div class="d-flex justify-content-center justify-content-sm-end">
+                <!-- Pagination -->
+                <nav id="datatablePagination" aria-label="Activity pagination"></nav>
+              </div>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Pagination -->
+        </div>
+        <!-- End Footer -->
+			</div>
+
+        </div>
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+
+    <div class="footer">
+      <div class="row justify-content-between align-items-center">
+        <div class="col">
+          <p class="fs-6 mb-0">© Amman Foods. <span class="d-none d-sm-inline-block">2022 All Rights Reserved.</span></p>
+        </div>
+        <!-- End Col -->
+
+        
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Footer -->
+  </main>
+  <!-- ========== END MAIN CONTENT ========== -->
+
+  <!-- JS Implementing Plugins -->
+  <script src="./order_files/vendor.min.js"></script>
+
+  <!-- JS Front -->
+  <script src="./order_files/theme.min.js"></script>
+  
+  <script src="./order_files/hs.theme-appearance.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    (function() {
+      window.onload = function () {
+        
+
+        // INITIALIZATION OF NAVBAR VERTICAL ASIDE
+        // =======================================================
+        new HSSideNav('.js-navbar-vertical-aside').init()
+
+
+        // INITIALIZATION OF FORM SEARCH
+        // =======================================================
+        new HSFormSearch('.js-form-search')
+
+
+        // INITIALIZATION OF BOOTSTRAP DROPDOWN
+        // =======================================================
+        HSBsDropdown.init()
+
+
+        // INITIALIZATION OF SELECT
+        // =======================================================
+        HSCore.components.HSTomSelect.init('.js-select')
+
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller')
+
+
+        // INITIALIZATION OF DROPZONE
+        // =======================================================
+        HSCore.components.HSDropzone.init('.js-dropzone')
+      }
+    })()
+  </script>
+
+
+<div class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-mobile-overlay" style="opacity: 1;"></div></body></html>

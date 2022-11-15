@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <!-- Navbar Vertical -->
+ 
+  <aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-white navbar-vertical-aside-initialized">
+    <div class="navbar-vertical-container">
+      <div class="navbar-vertical-footer-offset">
+        <!-- Logo -->
+
+        <a class="navbar-brand" href="https://amansfood.com/index.php" aria-label="Amman Foods">
+          <img class="navbar-brand-logo" src="./Checkout_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="default">
+          <img class="navbar-brand-logo" src="./Checkout_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="dark">
+          <img class="navbar-brand-logo-mini" src="./Checkout_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="default">
+          <img class="navbar-brand-logo-mini" src="./Checkout_files/ammanfoodslogo.png" alt="Logo" style="height:50px; width:auto;" data-hs-theme-appearance="dark">
+        </a>
+
+        <!-- End Logo -->
+
+        <!-- Navbar Vertical Toggle -->
+        <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler" style="opacity: 1;">
+          <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template="&lt;div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tooltip-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Collapse" aria-label="Collapse"></i>
+          <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template="&lt;div class=&quot;tooltip d-none d-md-block&quot; role=&quot;tooltip&quot;&gt;&lt;div class=&quot;arrow&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tooltip-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Expand" aria-label="Expand"></i>
+        </button>
+
+        <!-- End Navbar Vertical Toggle -->
+
+        <!-- Content -->
+        <div class="navbar-vertical-content">
+          <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+            <div class="nav-item">
+                <a class="nav-link " href="https://amansfood.com/users/index.php" data-placement="left">
+                  <i class="bi-house nav-icon"></i>
+                  <span class="nav-link-title">Dashboard</span>
+                </a>
+            </div>
+			  
+			  
+			<div class="nav-item">
+                <a class="nav-link " href="https://amansfood.com/users/order.php" data-placement="left">
+                  <i class="bi-basket nav-icon"></i>
+                  <span class="nav-link-title">Orders</span>
+                </a>
+            </div>
+		  </div>
+		</div>
+        <!-- End Content -->
+	  </div>
+    </div>
+  </aside>  
+
+  <main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-11">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-header-title">Cart Summery</h3>
+					<small class="text-muted"></small>
+				</div>
+				<div class="card-body">
+					<div class="card card-sm shadow-sm mb-4 p-5">
+				  <!-- Form -->
+				  <form action="{% url 'checkout' %}" method="post" enctype="multipart/form-data">
+					<!-- List Group -->{%csrf_token%}
+					<ul class="list-group list-group-flush list-group-no-gutters mb-5">
+        {{form}}
+            
+            {% for car in cart %} 
+					  <!-- Item -->
+					  <li class="list-group-item">
+						<div class="d-flex align-items-center">
+						  <div class="flex-shrink-0">
+							<!-- <img class="avatar avatar-sm avatar-4x3" src="{{item.product_image.url}}" alt="Image Description"> -->
+              <img class="avatar avatar-xl avatar-4x3" src="{{car.product.product_image.url}}" alt="Image Description">
+						  </div>
+
+						  <div class="flex-grow-1 ms-3 ">
+							<div class="row">
+							  <div class="col-sm-7 mb-3 mb-sm-0">
+                  <h5><a class="text-dark" href="https://amansfood.com/product-overview.php?product=202">{{ car.product.product_name }}</a></h5>
+                  <p>{{car.product.quantity }}</p>
+
+							   </div>
+							  <!-- End Col -->
+
+							  <div class="col-sm-3">
+								<div class="row">
+								  <div class="col-auto">
+									<!-- Select -->
+									<select class="form-select form-select-sm mb-3" id="qty88" name="qty88" disabled="">
+										<option>1</option>
+									</select>
+									<!-- End Select -->
+								  </div>
+								  <!-- End Col -->
+								</div>
+								<!-- End Row -->
+							  </div>
+							  <!-- End Col -->
+							  
+								<input type="hidden" name="cart_id[]" value="88">
+							  <div class="col-4 col-sm-2 d-none d-sm-inline-block text-right">
+								<div class="col-auto">
+									<div class="d-grid gap-2">
+									  <a href=""></a>
+										<i class="bi-trash me-1"></i> Remove
+									  </a>
+									</div>
+								  </div>
+							  </div>
+							  <!-- End Col -->
+							</div>
+							<!-- End Row -->
+						  </div>
+						</div>
+					  </li>
+					  <!-- End Item -->
+            {% endfor %}				  
+					 
+					</ul>
+					<!-- End List Group -->
+
+					<div class="d-sm-flex justify-content-betwee">
+					  <div class="col">
+						
+						<button class="btn btn-primary float-end" type="submit" name="PlaceOrder">Place Order <i class="bi bi-chevron-compact-right"></i></button>
+					  </div>
+					  
+					</div></form>
+				  
+				  <!-- End Form -->
+				  </div>
+				
+				</div>
+			</div>
+		</div> 
+	  </div>
+	</div>
+	<!-- End Content -->
+
+
+
+
+
+
+
+
+
+  {% endblock content %}
